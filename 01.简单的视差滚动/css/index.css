@@ -1,0 +1,123 @@
+/* * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #0a2a43;
+    min-height: 1500px;
+}
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items:center
+}
+section:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #0a2a43,transparent);
+    z-index: 10;
+}
+section:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a2a43;
+    z-index: 10;
+    mix-blend-mode: color;
+}
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+#text {
+    position: relative;
+    color: #fff;
+    font-size: 10em;
+    z-index:1
+}
+#road {
+    z-index: 2;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #0a2a43;
+    min-height: 1500px;             /* 给主体设置最小高度 */
+}
+section {
+    width: 100%;            
+    height: 100vh;          /* 相对于视口 */
+    overflow: hidden;       /* 溢出被裁减所以水平滚动条没有了,但是垂直为什么没有被剪裁? */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;     /* 父相 */
+}
+/* 要点设置渐变色!!! */
+section:before {
+    content: '';
+    position: absolute;     /* 子绝 */
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to top, #0a2a43, transparent);
+}
+section:after {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a2a43;
+    /* mix-blend-mode CSS 属性描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。 */
+    mix-blend-mode: color;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    width: vw;
+    height: 100%;
+    /* object-fit CSS 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。 */
+    object-fit: cover;
+    /* pointer-events CSS 属性指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target
+    元素永远不会成为鼠标事件的target。但是，当其后代元素的pointer-events属性指定其他值时，鼠标事件可以指向后代元素，
+    在这种情况下，鼠标事件将在捕获或冒泡阶段触发父元素的事件侦听器。 */
+    pointer-events: none;
+}
+
+/* 通过制定z-index来给页面中的元素进行z轴上的排序
+所以HTML中的顺序影响不大,可通过CSS直接进行修改 */
+#text {
+    position: relative;
+    color: #fff;
+    font-size: 10em;
+    min-width: 870px;
+    z-index: 1;
+}
+#road {
+    z-index: 2;
+}
