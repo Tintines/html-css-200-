@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- 区别Vue此处需要直接 传入并调用 menuToggle() -->
+    <div id="toggleIcon" onclick="menuToggle()"></div>
+    <div id="menu-overlay">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        // 点击按钮触发两个class类的 添加与删除!!!
+        function menuToggle() {
+            /* 给列表添加 active class类 */
+            var nav = document.getElementById('menu-overlay')
+            // nav.classList.toggle给菜单列表添加点击切换激活的class类
+            nav.classList.toggle('active')
+
+            /* 给图标也添加 active class类 */
+            var nav = document.getElementById('toggleIcon')
+            // nav.classList.toggle给菜单列表添加点击切换激活的class类
+            nav.classList.toggle('active')
+        }
+    </script>
+</body>
+</html>

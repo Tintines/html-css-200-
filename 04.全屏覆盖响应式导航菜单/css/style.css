@@ -1,0 +1,84 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: oldlace;
+}
+#menu-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f00;
+    display: flex;              /* 此处只针对 ul整体一个容器进行flex布局,垂直居中 */
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    transform: scale(0);
+    /* transform-origin: right top; */
+    transform-origin: 96% 4%;   /* 通过百分比控制在页面相对精确的位置进行变形!!! */
+    transition: 0.4s;
+}
+#menu-overlay.active {          /* 设置按钮点击激活时的样式!!! */
+    transform: scale(1);
+}
+
+#menu-overlay ul {
+    position: relative;
+}
+#menu-overlay ul li {
+    position: relative;
+    list-style: none;
+    display: block;             /* li 默认display: list-item */
+    text-align: center;
+}
+#menu-overlay ul li a {
+    position: relative;
+    text-decoration: none;
+    font-size: 3.5em;
+    padding: 0 10px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+#menu-overlay ul li a:before {
+    content: '';
+    position: absolute;     /* 此时默认生成的元素位于顶部 */
+    top: 50%;
+    left: 0;                /* 左排 */
+    width: 100%;
+    height: 10px;
+    background-color: #ff0;
+    transform: translateY(-50%) scaleX(0);    /* 垂直居中 + 水平缩放 */
+    transform-origin: right;
+    transition: 0.5s transform;
+}
+#menu-overlay ul li a:hover:before{
+    transform: translateY(-50%) scaleX(1);    /* 垂直居中 + 水平缩放 */
+    transform-origin: left;
+    transition: 0.5s transform;
+}
+
+/* 按钮 */
+#toggleIcon {
+    position: fixed;
+    z-index: 1;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    background: #ff0 url('../images/open.png') no-repeat;
+    background-size: contain;
+    border-radius: 4px;
+    cursor: pointer;                /* 是鼠标移动到普通盒子时显示 🤚型图标 */
+}
+#toggleIcon.active {
+    background: #ff0 url('../images/close.png') no-repeat;
+    background-size: contain;
+}
