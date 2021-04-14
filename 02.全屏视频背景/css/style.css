@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 1200px;             /* 修改body高度是生成滚动条,此时可以展示下方内容 */
+}
+.banner {
+    width: 100%;
+    height: 100vh;              /* 撑满视口高度 */
+    overflow: hidden;           /* 溢出部分进行裁剪, 但同时同级下方内容无法展示!!! 解决办法: 给body设置高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.banner .content {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.banner .content h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 4em;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;      /* 使用CSS属性使文字格式转大写 */
+}
+
+.banner .content p {
+    font-size: 1.5em;
+    color: #fff;
+}
